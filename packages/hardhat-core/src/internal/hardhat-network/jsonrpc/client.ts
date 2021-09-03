@@ -4,6 +4,7 @@ import * as t from "io-ts";
 import path from "path";
 
 import {
+  numberToRpcData,
   numberToRpcQuantity,
   rpcData,
   rpcQuantity,
@@ -56,7 +57,7 @@ export class JsonRpcClient {
       "eth_getStorageAt",
       [
         address.toString(),
-        numberToRpcQuantity(position),
+        numberToRpcData(position),
         numberToRpcQuantity(blockNumber),
       ],
       rpcData,

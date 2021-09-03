@@ -88,6 +88,15 @@ export function numberToRpcQuantity(n: number | BN): string {
   return `0x${n.toString(16)}`;
 }
 
+export function numberToRpcData(n: number | BN): string {
+  assertHardhatInvariant(
+    typeof n === "number" || BN.isBN(n),
+    "Expected number"
+  );
+
+  return bufferToRpcData(toBuffer(n));
+}
+
 /**
  * Transforms a DATA into a number. It should only be used if you are 100% sure that the data
  * represents a value fits in a number.
